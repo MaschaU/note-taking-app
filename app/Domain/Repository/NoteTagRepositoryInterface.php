@@ -9,7 +9,6 @@ use Illuminate\Support\Collection;
 
 interface NoteTagRepositoryInterface
 {
-
     public function createRelation(NoteTag $noteTagRelation): void;
 
     public function deleteByNoteId(NoteId $noteId): void;

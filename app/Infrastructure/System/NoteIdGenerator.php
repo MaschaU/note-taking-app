@@ -10,7 +10,6 @@ use Ramsey\Uuid\Uuid;
 
 final class NoteIdGenerator implements NoteIdGeneratorInterface
 {
-
     public function generate(): NoteId
     {
         return NoteId::fromString(Uuid::uuid4()->toString());

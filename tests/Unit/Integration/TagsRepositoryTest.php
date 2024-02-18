@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Integration;
 
-use App\Domain\Model\Tag;
 use App\Domain\ValueObject\TagId;
 use App\Domain\ValueObject\TagLabel;
 use App\Infrastructure\Outbound\Persistance\Repository\TagsRepository;
@@ -15,7 +14,6 @@ final class TagsRepositoryTest extends TestCase
     private const TAG_ID = 'a089205d-cc2f-4d43-9104-643bd1245b9e';
 
     private const TAG_ID_2 = 'a089205d-cc8f-4d43-9104-643bd1245b9e';
-
 
     private const LABEL = 'wow';
 

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 final class NotesRepository implements NotesRepositoryInterface
 {
     private const TABLE = 'notes';
+
     public function createNote(Note $note): void
     {
         $data = $note->toArray();
@@ -25,10 +26,10 @@ final class NotesRepository implements NotesRepositoryInterface
 
     public function getByNoteId(NoteId $noteId): ?array
     {
-        $note =  DB::table(self::TABLE)->where('note_id', $noteId)->first();
+        $note = DB::table(self::TABLE)->where('note_id', $noteId)->first();
+
         return $note ? (array) $note : null;
     }
-
 
     public function deleteNote(NoteId $noteId): void
     {
@@ -58,15 +59,13 @@ final class NotesRepository implements NotesRepositoryInterface
     {
         return DB::table(self::TABLE)
             ->select()
-            ->get()
-        ;
+            ->get();
     }
 
     public function getByNoteIds(array $noteIds): Collection
     {
         return DB::table(self::TABLE)
             ->whereIn('note_id', $noteIds)
-            ->get()
-        ;
+            ->get();
     }
 }

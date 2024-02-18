@@ -8,7 +8,6 @@ use App\Application\UseCase\DeleteNote\DeleteNoteCommand;
 use App\Application\UseCase\DeleteNote\DeleteNoteCommandHandler;
 use App\Application\UseCase\Exception\NoteNotFoundException;
 use App\Application\UseCase\Generator\NoteIdGeneratorInterface;
-use App\Domain\Model\Note;
 use App\Domain\Repository\NotesRepositoryInterface;
 use App\Domain\Repository\NoteTagRepositoryInterface;
 use App\Domain\Repository\TagsRepositoryInterface;
@@ -46,11 +45,6 @@ final class DeleteNoteCommandHandlerTest extends TestCase
      */
     private MockObject $tagsRepository;
 
-    /**
-     * @var MockObject&NoteIdGeneratorInterface
-     */
-    private MockObject $noteIdGenerator;
-
     private DeleteNoteCommandHandler $commandHandler;
 
     /**
@@ -62,7 +56,6 @@ final class DeleteNoteCommandHandlerTest extends TestCase
         $this->notesRepository = $this->createMock(NotesRepositoryInterface::class);
         $this->noteTagRepository = $this->createMock(NoteTagRepositoryInterface::class);
         $this->tagsRepository = $this->createMock(TagsRepositoryInterface::class);
-        $this->noteIdGenerator = $this->createMock(NoteIdGeneratorInterface::class);
         $this->commandHandler = new DeleteNoteCommandHandler(
             $this->notesRepository,
             $this->noteTagRepository,
@@ -156,7 +149,4 @@ final class DeleteNoteCommandHandlerTest extends TestCase
             ->with(self::NOTE_ID)
             ->willReturn(null);
     }
-
-
-
 }

@@ -31,8 +31,7 @@ final class NoteTagRepository implements NoteTagRepositoryInterface
     {
         $relations = DB::table(self::TABLE)
             ->where(['note_id' => $noteId])
-            ->pluck('tag_id')
-        ;
+            ->pluck('tag_id');
 
         return $relations->toArray();
     }
@@ -48,20 +47,17 @@ final class NoteTagRepository implements NoteTagRepositoryInterface
             ->where('nt.note_id', '=', $noteId)
             ->select('nt.tag_id')
             ->get()
-            ->pluck('tag_id')
-        ;
+            ->pluck('tag_id');
     }
 
     public function deleteRelationsToNoteId(NoteId $noteId): ?array
     {
         $tagIds = $this->getIsolatedTagsByNoteId($noteId)
-            ->toArray()
-        ;
+            ->toArray();
         $this->deleteByNoteId($noteId);
 
         return $tagIds;
     }
-
 
     public function getNoteIdsByTagId(TagId $tagId): Collection
     {
@@ -69,7 +65,6 @@ final class NoteTagRepository implements NoteTagRepositoryInterface
             ->select()
             ->where('tag_id', $tagId)
             ->get()
-            ->pluck('note_id')
-        ;
+            ->pluck('note_id');
     }
 }

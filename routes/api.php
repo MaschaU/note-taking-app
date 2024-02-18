@@ -25,13 +25,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('post', [CreateNoteController::class, 'update']);
 
-Route::group([
+Route::group(
+    [
     'prefix' => 'v1',
-//    'middleware' => [
-//        'scopes',
-//    ],
-//    'scopes' => Scope::INVENTORY_DEVELOPERS_READ_WRITE,
-],
+    ],
     fn (): array => [
         Route::post('create-note', CreateNoteController::class),
         Route::post('delete-note', DeleteNoteController::class),

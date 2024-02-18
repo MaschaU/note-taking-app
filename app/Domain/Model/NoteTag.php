@@ -33,5 +33,4 @@ final class NoteTag
           self::TAG_ID => $this->tagId,
         ];
     }
-
 }

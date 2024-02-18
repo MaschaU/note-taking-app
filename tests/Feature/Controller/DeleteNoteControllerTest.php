@@ -11,6 +11,7 @@ use Tests\TestCase;
 final class DeleteNoteControllerTest extends TestCase
 {
     use RefreshDatabase;
+
     public function testDeleteNote()
     {
         $this->seed(DatabaseSeeder::class);

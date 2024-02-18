@@ -10,7 +10,6 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     use CreateNoteTrait;
-
     use CreateNoteTagTrait;
 
     private const TITLE_1 = 'Clickbait title';
@@ -20,7 +19,6 @@ class DatabaseSeeder extends Seeder
     private const UUID_1 = 'a089205d-cc2f-4d43-9104-643bd1245b9e';
 
     private const NOTE_ID = 'a089205d-cc2f-4d11-9104-643bd1245b9e';
-
 
     /**
      * Seed the application's database.

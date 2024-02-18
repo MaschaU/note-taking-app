@@ -7,7 +7,6 @@ namespace App\Helpers;
 use App\Domain\Model\Note;
 use App\Domain\ValueObject\NoteBody;
 use App\Domain\ValueObject\NoteId;
-use App\Domain\ValueObject\NoteTags;
 use App\Domain\ValueObject\NoteTitle;
 use App\Infrastructure\Outbound\Persistance\Repository\NotesRepository;
 

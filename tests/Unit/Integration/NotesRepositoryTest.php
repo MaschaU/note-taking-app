@@ -13,7 +13,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Collection;
 use Tests\TestCase;
 
-
 final class NotesRepositoryTest extends TestCase
 {
     use RefreshDatabase;
@@ -176,15 +175,15 @@ final class NotesRepositoryTest extends TestCase
             ->toArray();
 
         $expectedData = [
-            (object)[
+            (object) [
                 'note_id' => self::NOTE_ID,
                 'title' => self::NOTE_TITLE,
-                'body' => self::NOTE_BODY
+                'body' => self::NOTE_BODY,
             ],
-            (object)[
+            (object) [
                 'note_id' => self::SECOND_NOTE_ID,
                 'title' => self::SECOND_NOTE_TITLE,
-                'body' => self::SECOND_NOTE_BODY
+                'body' => self::SECOND_NOTE_BODY,
             ],
         ];
         $this->assertEquals($expectedData, $collection);
@@ -196,15 +195,15 @@ final class NotesRepositoryTest extends TestCase
             ->toArray();
 
         $expectedData = [
-            (object)[
+            (object) [
                 'note_id' => self::NOTE_ID,
                 'title' => self::NOTE_TITLE,
-                'body' => self::NOTE_BODY
+                'body' => self::NOTE_BODY,
             ],
-            (object)[
+            (object) [
                 'note_id' => self::SECOND_NOTE_ID,
                 'title' => self::SECOND_NOTE_TITLE,
-                'body' => self::SECOND_NOTE_BODY
+                'body' => self::SECOND_NOTE_BODY,
             ],
         ];
         $this->assertEquals($expectedData, $collection);

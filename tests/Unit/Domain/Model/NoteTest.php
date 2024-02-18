@@ -7,7 +7,6 @@ namespace Tests\Unit\Domain\Model;
 use App\Domain\Model\Note;
 use App\Domain\ValueObject\NoteBody;
 use App\Domain\ValueObject\NoteId;
-use App\Domain\ValueObject\NoteTags;
 use App\Domain\ValueObject\NoteTitle;
 use PHPUnit\Framework\TestCase;
 
@@ -43,6 +42,8 @@ final class NoteTest extends TestCase
                 'title' => self::NOTE_TITLE,
                 'body' => self::NOTE_BODY,
                 'note_id' => self::NOTE_ID,
-            ], $note->toArray());
+            ],
+            $note->toArray()
+        );
     }
 }

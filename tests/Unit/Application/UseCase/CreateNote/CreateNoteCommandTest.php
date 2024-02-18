@@ -6,7 +6,6 @@ namespace Tests\Unit\Application\UseCase\CreateNote;
 
 use App\Application\UseCase\CreateNote\CreateNoteCommand;
 use App\Domain\ValueObject\NoteBody;
-use App\Domain\ValueObject\NoteId;
 use App\Domain\ValueObject\NoteTags;
 use App\Domain\ValueObject\NoteTitle;
 use PHPUnit\Framework\TestCase;
@@ -26,8 +25,6 @@ final class CreateNoteCommandTest extends TestCase
     private const NOTE_BODY = 'Such wow';
 
     private const NOTE_TAGS = ['wow', 'whoa'];
-
-
 
     public function setUp(): void
     {

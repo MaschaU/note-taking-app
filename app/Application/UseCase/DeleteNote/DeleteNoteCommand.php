@@ -10,7 +10,7 @@ final class DeleteNoteCommand
 {
     public function __construct(
         private readonly NoteId $noteId,
-    ){
+    ) {
     }
 
     public function noteId(): NoteId

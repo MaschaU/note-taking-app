@@ -7,7 +7,6 @@ namespace App\Domain\Model;
 use App\Domain\ValueObject\NoteBody;
 use App\Domain\ValueObject\NoteId;
 use App\Domain\ValueObject\NoteTitle;
-use App\Domain\ValueObject\NoteTags;
 
 final class Note
 {
@@ -20,8 +19,8 @@ final class Note
     private const NOTE_ID = 'note_id';
 
     public function __construct(
-        private readonly NoteTitle     $noteTitle,
-        private readonly NoteBody      $noteBody,
+        private readonly NoteTitle $noteTitle,
+        private readonly NoteBody $noteBody,
         private readonly NoteId $noteId,
     ) {
     }

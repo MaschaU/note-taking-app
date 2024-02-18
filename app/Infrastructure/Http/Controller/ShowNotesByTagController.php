@@ -13,14 +13,15 @@ class ShowNotesByTagController extends Controller
     public function __construct(
         private readonly NotesRepositoryInterface $notesRepository,
         private readonly NoteTagRepositoryInterface $noteTagRepository,
-    ){
+    ) {
     }
 
-    public function __invoke(ShowNotesByTagRequest $request, string $tagId): JsonResponse {
+    public function __invoke(ShowNotesByTagRequest $request, string $tagId): JsonResponse
+    {
 
         $noteIds = $this->noteTagRepository->getNoteIdsByTagId(TagId::fromString($tagId))->toArray();
 
-        if(empty($noteIds)) {
+        if (empty($noteIds)) {
             return response()->json(['message' => 'No notes match the requested tag'], 404);
         }
         $notes = $this->notesRepository->getByNoteIds($noteIds);

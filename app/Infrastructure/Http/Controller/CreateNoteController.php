@@ -9,17 +9,16 @@ use App\Domain\ValueObject\NoteTags;
 use App\Domain\ValueObject\NoteTitle;
 use App\Infrastructure\Http\Request\CreateNoteRequest;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CreateNoteController extends Controller
 {
     public function __construct(
         private readonly CreateNoteHandlerInterface $createNoteHandler,
-    ){
+    ) {
     }
 
-    public function __invoke(CreateNoteRequest $request): JsonResponse {
+    public function __invoke(CreateNoteRequest $request): JsonResponse
+    {
         $request->validate([
             'title' => 'required|string',
             'body' => 'required|string',

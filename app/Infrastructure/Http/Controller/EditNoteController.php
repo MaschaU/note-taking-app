@@ -16,7 +16,7 @@ final class EditNoteController extends Controller
 {
     public function __construct(
         private readonly EditNoteCommandHandlerInterface $editNoteCommandHandler,
-    ){
+    ) {
     }
 
     public function __invoke(EditNoteRequest $request): JsonResponse

@@ -52,7 +52,6 @@ final class CreateNoteCommandHandlerTest extends TestCase
      */
     private MockObject $noteTagRepository;
 
-
     /**
      * @var MockObject&NoteIdGeneratorInterface
      */
@@ -112,7 +111,8 @@ final class CreateNoteCommandHandlerTest extends TestCase
             ->method('getByLabel')
             ->with($this->tagLabel())
             ->willReturn(new Tag(
-                $this->tagId(), $this->tagLabel()
+                $this->tagId(),
+                $this->tagLabel()
             ));
     }
 
@@ -153,7 +153,8 @@ final class CreateNoteCommandHandlerTest extends TestCase
                 new Tag(
                     $this->tagId(),
                     $this->tagLabel()
-            ));
+                )
+            );
     }
 
     private function andRelationsToBePersisted(): void
@@ -163,8 +164,7 @@ final class CreateNoteCommandHandlerTest extends TestCase
             ->with(new NoteTag(
                 $this->noteId(),
                 $this->tagId()
-            ))
-        ;
+            ));
     }
 
     private function createNoteCommand(): CreateNoteCommand
@@ -210,5 +210,4 @@ final class CreateNoteCommandHandlerTest extends TestCase
     {
         $this->commandHandler->handle($this->createNoteCommand());
     }
-
 }

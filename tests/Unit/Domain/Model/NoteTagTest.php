@@ -34,8 +34,9 @@ final class NoteTagTest extends TestCase
         $this->assertEquals(
             [
                 'note_id' => self::NOTE_ID,
-                'tag_id' => self::TAG_ID
-            ], $noteTag->toArray());
+                'tag_id' => self::TAG_ID,
+            ],
+            $noteTag->toArray()
+        );
     }
-
 }

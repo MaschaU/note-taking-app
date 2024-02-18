@@ -10,10 +10,11 @@ class ShowNotesController extends Controller
 {
     public function __construct(
         private readonly NotesRepositoryInterface $notesRepository,
-    ){
+    ) {
     }
 
-    public function __invoke(ShowNotesRequest $request): JsonResponse {
+    public function __invoke(ShowNotesRequest $request): JsonResponse
+    {
         $notes = $this->notesRepository->getAll();
 
         return response()->json($notes, 200);

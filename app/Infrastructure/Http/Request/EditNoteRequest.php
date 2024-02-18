@@ -8,7 +8,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 final class EditNoteRequest extends FormRequest
 {
-
     public function authorize(): bool
     {
         return true;

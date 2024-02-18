@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Model;
 
-use App\Domain\ValueObject\NoteBody;
 use App\Domain\ValueObject\TagId;
-use App\Domain\ValueObject\NoteTitle;
-use App\Domain\ValueObject\NoteTags;
 use App\Domain\ValueObject\TagLabel;
 
 final class Tag

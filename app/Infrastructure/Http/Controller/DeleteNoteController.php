@@ -14,7 +14,7 @@ final class DeleteNoteController extends Controller
 {
     public function __construct(
         private readonly DeleteNoteCommandHandlerInterface $deleteNoteCommandHandler,
-    ){
+    ) {
     }
 
     public function __invoke(DeleteNoteRequest $request): JsonResponse

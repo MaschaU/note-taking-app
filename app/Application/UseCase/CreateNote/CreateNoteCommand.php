@@ -14,7 +14,7 @@ final class CreateNoteCommand
         private readonly NoteTitle $noteTitle,
         private readonly NoteBody $noteBody,
         private readonly NoteTags $noteTags,
-    ){
+    ) {
     }
 
     public function noteTitle(): NoteTitle

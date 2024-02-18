@@ -9,5 +9,4 @@ use App\Domain\ValueObject\NoteId;
 interface NoteIdGeneratorInterface
 {
     public function generate(): NoteId;
-
 }

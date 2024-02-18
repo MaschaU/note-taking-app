@@ -18,7 +18,6 @@ final class CreateNoteRequest extends FormRequest
         return [
             'title' => ['required', 'string'],
             'body' => ['required', 'string'],
-//            'tags' => ['array'],
         ];
     }
 }

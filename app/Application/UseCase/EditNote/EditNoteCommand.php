@@ -6,7 +6,6 @@ namespace App\Application\UseCase\EditNote;
 
 use App\Domain\ValueObject\NoteBody;
 use App\Domain\ValueObject\NoteId;
-use App\Domain\ValueObject\NoteTags;
 use App\Domain\ValueObject\NoteTitle;
 
 final class EditNoteCommand
@@ -15,7 +14,7 @@ final class EditNoteCommand
         private readonly NoteId $noteId,
         private readonly NoteTitle $noteTitle,
         private readonly NoteBody $noteBody,
-    ){
+    ) {
     }
 
     public function noteId(): NoteId

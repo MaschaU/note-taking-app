@@ -8,11 +8,8 @@ use App\Application\UseCase\EditNote\EditNoteCommand;
 use App\Application\UseCase\EditNote\EditNoteCommandHandler;
 use App\Application\UseCase\Exception\NoteNotFoundException;
 use App\Domain\Repository\NotesRepositoryInterface;
-use App\Domain\Repository\NoteTagRepositoryInterface;
-use App\Domain\Repository\TagsRepositoryInterface;
 use App\Domain\ValueObject\NoteBody;
 use App\Domain\ValueObject\NoteId;
-use App\Domain\ValueObject\NoteTags;
 use App\Domain\ValueObject\NoteTitle;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\MockObject\Exception;
@@ -71,7 +68,7 @@ final class EditNoteCommandHandlerTest extends TestCase
             ->willReturn([
                 'title' => $this->noteTitle(),
                 'body' => $this->noteBody(),
-                'note_id' => $this->noteId()
+                'note_id' => $this->noteId(),
             ]);
     }
 

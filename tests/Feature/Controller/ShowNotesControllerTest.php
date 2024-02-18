@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Feature\Controller;
+namespace Tests\Feature\Controller;
 
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -31,7 +31,7 @@ final class ShowNotesControllerTest extends TestCase
                 'note_id' => self::UUID,
                 'title' => self::TITLE,
                 'body' => self::BODY,
-                ]
+                ],
             ]
         ), $response->content());
     }

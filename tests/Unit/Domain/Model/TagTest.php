@@ -34,7 +34,9 @@ final class TagTest extends TestCase
         $this->assertEquals(
             [
             'label' => self::TAG_LABEL,
-            'tag_id' => self::TAG_ID
-            ], $tag->toArray());
+            'tag_id' => self::TAG_ID,
+            ],
+            $tag->toArray()
+        );
     }
 }

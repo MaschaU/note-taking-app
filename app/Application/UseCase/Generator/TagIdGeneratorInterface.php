@@ -9,5 +9,4 @@ use App\Domain\ValueObject\TagId;
 interface TagIdGeneratorInterface
 {
     public function generate(): TagId;
-
 }

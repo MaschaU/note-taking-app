@@ -20,11 +20,11 @@ final class CreateNoteCommandHandler implements CreateNoteHandlerInterface
 {
     public function __construct(
         private readonly NotesRepositoryInterface $notesRepository,
-        private readonly TagsRepositoryInterface  $tagsRepository,
+        private readonly TagsRepositoryInterface $tagsRepository,
         private readonly NoteIdGeneratorInterface $noteIdGenerator,
         private readonly TagIdGeneratorInterface $tagIdGenerator,
         private readonly NoteTagRepositoryInterface $noteTagRepository,
-    ){
+    ) {
     }
 
     // TODO: Implement database transaction for data integrity & consistency

@@ -15,7 +15,6 @@ use App\Infrastructure\Outbound\Persistance\Repository\NotesRepository;
 use App\Infrastructure\Outbound\Persistance\Repository\NoteTagRepository;
 use App\Infrastructure\Outbound\Persistance\Repository\TagsRepository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Collection;
 use Tests\TestCase;
 
 class NoteTagRepositoryTest extends TestCase
@@ -154,29 +153,39 @@ class NoteTagRepositoryTest extends TestCase
 
     private function givenExistingRelation(): void
     {
-        $this->noteTagRepository->createRelation(new NoteTag(
-            NoteId::fromString(self::NOTE1_CONTAINS_TAG1_TAG2),
-            TagId::fromString(self::TAG_ID_1))
+        $this->noteTagRepository->createRelation(
+            new NoteTag(
+                NoteId::fromString(self::NOTE1_CONTAINS_TAG1_TAG2),
+                TagId::fromString(self::TAG_ID_1)
+            )
         );
     }
 
     private function givenMultipleExistingRelationsAndOneUnrelatedNoteId(): void
     {
-        $this->noteTagRepository->createRelation(new NoteTag(
+        $this->noteTagRepository->createRelation(
+            new NoteTag(
                 NoteId::fromString(self::NOTE1_CONTAINS_TAG1_TAG2),
-                TagId::fromString(self::TAG_ID_1))
+                TagId::fromString(self::TAG_ID_1)
+            )
         );
-        $this->noteTagRepository->createRelation(new NoteTag(
+        $this->noteTagRepository->createRelation(
+            new NoteTag(
                 NoteId::fromString(self::NOTE1_CONTAINS_TAG1_TAG2),
-                TagId::fromString(self::TAG_ID_2))
+                TagId::fromString(self::TAG_ID_2)
+            )
         );
-        $this->noteTagRepository->createRelation(new NoteTag(
+        $this->noteTagRepository->createRelation(
+            new NoteTag(
                 NoteId::fromString(self::NOTE2_CONTAINS_TAG1_TAG3),
-                TagId::fromString(self::TAG_ID_1))
+                TagId::fromString(self::TAG_ID_1)
+            )
         );
-        $this->noteTagRepository->createRelation(new NoteTag(
+        $this->noteTagRepository->createRelation(
+            new NoteTag(
                 NoteId::fromString(self::NOTE2_CONTAINS_TAG1_TAG3),
-                TagId::fromString(self::TAG_ID_3))
+                TagId::fromString(self::TAG_ID_3)
+            )
         );
     }
 
@@ -251,14 +260,14 @@ class NoteTagRepositoryTest extends TestCase
             'note_tag',
             [
                 'note_id' => self::NOTE2_CONTAINS_TAG1_TAG3,
-                'tag_id' => self::TAG_ID_1
+                'tag_id' => self::TAG_ID_1,
             ],
         );
         $this->assertDatabaseMissing(
             'note_tag',
             [
                 'note_id' => self::NOTE2_CONTAINS_TAG1_TAG3,
-                'tag_id' => self::TAG_ID_3
+                'tag_id' => self::TAG_ID_3,
             ],
         );
     }
@@ -290,5 +299,4 @@ class NoteTagRepositoryTest extends TestCase
             $result
         );
     }
-
 }

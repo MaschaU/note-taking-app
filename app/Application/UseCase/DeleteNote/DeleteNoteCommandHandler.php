@@ -16,7 +16,7 @@ final class DeleteNoteCommandHandler implements DeleteNoteCommandHandlerInterfac
         private readonly NotesRepositoryInterface $notesRepository,
         private readonly NoteTagRepositoryInterface $noteTagRepository,
         private readonly TagsRepositoryInterface $tagsRepository,
-    ){
+    ) {
     }
 
     // TODO: Implement database transaction for data integrity & consistency
@@ -24,7 +24,7 @@ final class DeleteNoteCommandHandler implements DeleteNoteCommandHandlerInterfac
     {
         $noteId = NoteId::fromString($command->noteId()->toString());
         $note = $this->notesRepository->getByNoteId($noteId);
-        if(!$note) {
+        if (!$note) {
             throw NoteNotFoundException::forNoteId($noteId);
         }
 
