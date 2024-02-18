@@ -1,0 +1,134 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Note API
+  description: API for managing notes
+paths:
+  /api/v1/create-note:
+    post:
+      summary: Create a new note
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateNoteRequest'
+      responses:
+        '201':
+          description: Note created successfully
+          content:
+            application/json:
+              example:
+                message: Note created successfully
+        '422':
+          description: Unprocessable Entity
+  /api/v1/delete-note:
+    post:
+      summary: Delete a note by ID
+      parameters:
+        - name: note_id
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Note deleted successfully
+          content:
+            application/json:
+              example:
+                message: Note deleted successfully
+        '405':
+          description: Method Not Allowed
+  /api/v1/edit-note:
+    post:
+      summary: Edit a note by ID
+      parameters:
+        - name: note_id
+          in: query
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditNoteRequest'
+      responses:
+        '200':
+          description: Note edited successfully
+          content:
+            application/json:
+              example:
+                message: Note edited successfully
+        '405':
+          description: Method Not Allowed
+  /api/v1/show-notes-by-tag/{tag_id}:
+    get:
+      summary: Show notes by tag
+      parameters:
+        - name: tag_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: List of notes by tag
+        '404':
+          description: Not Found
+  /api/v1/show-notes:
+    get:
+      summary: Show all notes
+      responses:
+        '200':
+          description: List of all notes
+components:
+  schemas:
+    CreateNoteRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+      required:
+        - title
+        - body
+    DeleteNoteRequest:
+      type: object
+      properties:
+        note_id:
+          type: string
+          format: uuid
+      required:
+        - note_id
+    EditNoteRequest:
+      type: object
+      properties:
+        note_id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        body:
+          type: string
+      required:
+        - note_id
+    ShowNotesByTagRequest:
+      type: object
+      properties:
+        tag_id:
+          type: string
+          format: uuid
+      required:
+        - tag_id
+    ShowNotesRequest:
+      type: object
+      properties: {}
+      required: []
+
