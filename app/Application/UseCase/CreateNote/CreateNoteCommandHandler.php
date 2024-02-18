@@ -30,6 +30,7 @@ final class CreateNoteCommandHandler implements CreateNoteHandlerInterface
     // TODO: Implement database transaction for data integrity & consistency
     public function handle(CreateNoteCommand $command): void
     {
+        // TODO: clean this up
         // get tags if they already exist or insert them if not
         $noteTags = NoteTags::fromArray($command->noteTags()->toArray());
         $tags = [];
